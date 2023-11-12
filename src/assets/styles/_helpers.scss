@@ -1,0 +1,5 @@
+$root-size: 16px; 
+
+@function to-rem($value) {
+  @return $value / $root-size * 1rem;
+}
