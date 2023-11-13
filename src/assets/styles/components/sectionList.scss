@@ -1,0 +1,47 @@
+@import '../helpers.scss';
+
+.sectionList{
+  padding: to-rem(32px) 0;
+  &__title{
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: to-rem(20px);
+    h2{
+      font-size: to-rem(20px);
+      font-weight: 700;
+      margin: 0;
+    }
+
+    a{
+      font-size: to-rem(14px);
+      text-decoration: none;
+      color: var(--purple);
+      font-weight: 700;
+    }
+  }
+
+  &__lib{
+
+    &___item{
+      width: fit-content !important;
+      border-radius: 20px;
+      border: 1px solid var(--lightGray);
+      padding: to-rem(6px) to-rem(16px);
+      
+      a{
+        color:var(--mediumGray);
+        text-decoration: none;
+        font-size: to-rem(14px);
+        font-weight: 500;
+      }
+
+      &.active{
+        background-color: var(--purple);
+        border-color: transparent;
+
+        a{
+          color: #fff;
+        }
+      }
+    }
+  }
+}

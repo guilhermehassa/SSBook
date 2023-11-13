@@ -1,0 +1,35 @@
+@import '../helpers.scss';
+
+.favoriteBooks{
+  &__item{
+    position: relative;
+    width: to-rem(136px) !important;
+
+    &:last-child{margin-right: 0;}
+
+    a{text-decoration: none; color: unset;}
+    img{
+      border-radius: to-rem(5px);
+      max-width: 100%;
+      margin-bottom: to-rem(10px);
+    }
+
+    h3{
+      font-size: to-rem(16px);
+      font-weight: 700;
+      margin-bottom: to-rem(2px);
+      letter-spacing: to-rem(-0.2px);
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
+    }
+
+    h4{
+      font-size: to-rem(14px);
+      font-weight: 400;
+      color: var(--mediumGray);
+      margin-bottom: 0;
+    }
+  }
+}
