@@ -7,7 +7,7 @@ import 'swiper/css';
 
 function App() {
   return (
-    <div className="SSBook">
+    <main>
       <section className="breadcrumb">
         <Container>
           <Link to='/' className='active' >
@@ -31,6 +31,76 @@ function App() {
             spaceBetween={20}
             slidesPerView={2.3}
           >
+            <SwiperSlide className='favoriteBooks__item'>
+              <Link to='/book/2'>
+                <img
+                  src='../assets/img/image_test.png'
+                  alt='Test'
+                />
+                <h3>
+                  O duque e eu (Os Bridgertons – Livro 1): O livro de Daphne
+                </h3>
+                <h4>
+                  Julia Quinn
+                </h4>
+              </Link>
+            </SwiperSlide>
+            <SwiperSlide className='favoriteBooks__item'>
+              <Link to='/book/2'>
+                <img
+                  src='../assets/img/image_test.png'
+                  alt='Test'
+                />
+                <h3>
+                  O duque e eu (Os Bridgertons – Livro 1): O livro de Daphne
+                </h3>
+                <h4>
+                  Julia Quinn
+                </h4>
+              </Link>
+            </SwiperSlide>
+            <SwiperSlide className='favoriteBooks__item'>
+              <Link to='/book/2'>
+                <img
+                  src='../assets/img/image_test.png'
+                  alt='Test'
+                />
+                <h3>
+                  O duque e eu (Os Bridgertons – Livro 1): O livro de Daphne
+                </h3>
+                <h4>
+                  Julia Quinn
+                </h4>
+              </Link>
+            </SwiperSlide>
+            <SwiperSlide className='favoriteBooks__item'>
+              <Link to='/book/2'>
+                <img
+                  src='../assets/img/image_test.png'
+                  alt='Test'
+                />
+                <h3>
+                  O duque e eu (Os Bridgertons – Livro 1): O livro de Daphne
+                </h3>
+                <h4>
+                  Julia Quinn
+                </h4>
+              </Link>
+            </SwiperSlide>
+            <SwiperSlide className='favoriteBooks__item'>
+              <Link to='/book/2'>
+                <img
+                  src='../assets/img/image_test.png'
+                  alt='Test'
+                />
+                <h3>
+                  O duque e eu (Os Bridgertons – Livro 1): O livro de Daphne
+                </h3>
+                <h4>
+                  Julia Quinn
+                </h4>
+              </Link>
+            </SwiperSlide>
             <SwiperSlide className='favoriteBooks__item'>
               <Link to='/book/2'>
                 <img
@@ -203,7 +273,7 @@ function App() {
           </ul>
         </Container>
       </section>
-    </div>
+    </main>
   );
 }
 

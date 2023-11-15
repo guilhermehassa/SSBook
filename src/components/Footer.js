@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export default function Footer(){
   return(
     <header className="footer">
-      <Container>
+      <Container className="d-lg-none">
         <nav>
           <ul>
             <li className="active">
@@ -42,7 +42,16 @@ export default function Footer(){
             </li>
           </ul>
         </nav>
+      </Container>
 
+      <Container className="footerDesktop d-none d-lg-flex">
+        <Link to="/">
+          <img src="../assets/img/logo.svg" alt="Logo SSBOOK"/>
+        </Link>
+        <p>
+          Todos os direitos reservados.<br/>
+          Studio Sol Books © 2023 
+        </p>
       </Container>
     </header>
   )

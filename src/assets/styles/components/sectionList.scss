@@ -2,13 +2,25 @@
 
 .sectionList{
   padding: to-rem(32px) 0;
+  
+  @include media-breakpoint-up(lg){
+    padding: to-rem(24px) 0;
+  }
   &__title{
     display: flex; justify-content: space-between; align-items: center;
     margin-bottom: to-rem(20px);
+    
+    @include media-breakpoint-up(lg){
+      margin-bottom: to-rem(24px);
+    }
     h2{
       font-size: to-rem(20px);
       font-weight: 700;
       margin: 0;
+
+      @include media-breakpoint-up(lg){
+        font-size:to-rem(28px);
+      }
     }
 
     a{
@@ -16,6 +28,10 @@
       text-decoration: none;
       color: var(--purple);
       font-weight: 700;
+
+      @include media-breakpoint-up(lg){
+        font-size:to-rem(16px);
+      }
     }
   }
 
