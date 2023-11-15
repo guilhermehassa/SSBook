@@ -1,0 +1,111 @@
+@import '../helpers.scss';
+
+.bookPage{
+  position: absolute;
+  top: 0;
+  z-index: 5;
+  transition: 0.3s;
+  
+  @include media-breakpoint-up(lg){
+    position: relative;
+  }
+
+  & > img{
+    width:100%;
+    height: auto;
+    margin: 0 auto;
+    position: absolute;
+    z-index: -1;
+    
+    @include media-breakpoint-up(md){
+      width: to-rem(300px);
+      margin: 0 calc(50% - 150px);
+    }
+  }
+
+  &__breadcrumb{
+    padding-top: to-rem(20px);
+    padding-bottom: to-rem(85px);
+    background: linear-gradient(180deg, #0000009b 0%, rgba(0, 0, 0, 0.0001) 100%);
+    
+    @include media-breakpoint-up(lg){
+      padding: to-rem(24px);
+      background: unset;
+
+    }
+
+    &___buttons{
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__content{
+    margin-top: to-rem(140px);
+    padding: to-rem(32px) 0;
+    background-color: #fff;
+    border-radius: to-rem(32px) 0px 0px 0px;
+
+    h1{
+      font-size: to-rem(20px);
+      font-weight: 700;
+    }
+
+    h3{
+      font-size: to-rem(14px);
+      color: var(--mediumGray);
+    }
+  }
+
+  &Desktop{
+    padding: to-rem(24px) 0;
+    &__image{
+      border-radius: to-rem(10px);
+      width: 100%; height: auto;
+    }
+
+    &__buttons{
+      margin-top: to-rem(20px);
+      display: flex; flex-direction: column;
+
+      a{
+        padding: to-rem(12px) 0;
+        display: flex; align-items: center;
+        gap: to-rem(12px);
+        text-decoration: none;
+
+        span{
+          font-size: to-rem(18px);
+          font-weight: 700;
+        }
+      }
+    }
+
+    h1{
+      font-size: to-rem(34px);
+      font-weight: 700;
+    }
+    h2{
+      font-size: to-rem(24px);
+      font-weight: 400;
+
+      margin-bottom: to-rem(48px);
+    }
+    &__content{
+      p{
+        font-size: to-rem(18px);
+
+        &:last-child{
+          margin-bottom: 0;
+        }
+      }
+
+      h2{
+        margin-top: to-rem(20px);
+        margin-bottom: to-rem(24px);
+        font-size: to-rem(28px);
+      }
+    }
+  }
+}

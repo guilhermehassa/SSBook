@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export default function Footer(){
   return(
-    <header className="footer">
+    <footer className="footer">
       <Container className="d-lg-none">
         <nav>
           <ul>
@@ -53,6 +53,6 @@ export default function Footer(){
           Studio Sol Books © 2023 
         </p>
       </Container>
-    </header>
+    </footer>
   )
 }

@@ -35,7 +35,7 @@ export default function Header(){
             <img src="../assets/img/profile_picture.png" alt="Foto de perfil Jucireide" />
           </picture>
 
-          <span>
+          <span className="d-none d-lg-block">
             Jucicreide
           </span>
         </Link>

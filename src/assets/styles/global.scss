@@ -12,3 +12,11 @@
 body{
   background-color: #f7f7f7;
 }
+
+main{
+  padding-bottom: to-rem(50px);
+
+  @include media-breakpoint-up(md){
+    margin-bottom: unset;
+  }
+}
