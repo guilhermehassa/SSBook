@@ -2,12 +2,44 @@
 import { Col, Container, Row } from "react-bootstrap";
 import { Link, useParams } from "react-router-dom";
 
-function App() {
+import { QueryClient, QueryClientProvider, useQuery } from 'react-query';
+import axios from 'axios';
+const queryClient = new QueryClient();
+
+const Book = () => {
   const {id} = useParams();
-  {/* book {id} */}
+
+  const { data, isLoading, error } = useQuery('book', async () => {
+    const response = await axios.get('https://us-central1-ss-devops.cloudfunctions.net/GraphQL', {
+      params: {
+        query: `
+          query book{
+            book(id:${id}){
+              cover, name, author{name}, description 
+            }
+          }
+        `,
+      },
+    });
+
+    return response.data.data;
+  });
+
+  if (isLoading) {
+    return (
+      <div class="spinner-grow" role="status">
+        <span class="sr-only"></span>
+      </div>
+    );
+  }
+
+  if (error) {
+    return <p>Error: {error.message}</p>;
+  }
+  const formatedDescription = data.book.description.split('\n');
   return (
     <main className="bookPage">
-      <img className="d-lg-none" src="../assets/img/image_test.png"/>
+      <img className="d-lg-none" src={data.book.cover}/>
 
       <section className="bookPage__breadcrumb d-lg-none">
         <Container>
@@ -27,10 +59,10 @@ function App() {
           <div className="row">
             <div className="col-10">
               <h1>
-                O duque e eu (Os Bridgertons – Livro 1): O livro de Daphne
+                {data.book.name}
               </h1>
               <h3>
-                Julia Quinn
+                {data.book.author.name}
               </h3>
               
             </div>
@@ -42,18 +74,9 @@ function App() {
           </div>
           <div className="row">
             <div className="col-12">
-              <p>
-                Simon Basset, o irresistível duque de Hastings, acaba de retornar a Londres depois de seis anos viajando pelo mundo. Rico, bonito e solteiro, ele é um prato cheio para as mães da alta sociedade, que só pensam em arrumar um bom partido para suas filhas.
-              </p>
-              <p>
-                Simon, porém, tem o firme propósito de nunca se casar. Assim, para se livrar das garras dessas mulheres, precisa de um plano infalível.
-              </p>
-              <p>
-                É quando entra em cena Daphne Bridgerton, a irmã mais nova de seu melhor amigo. Apesar de espirituosa e dona de uma personalidade marcante, todos os homens que se interessam por ela são velhos demais, pouco inteligentes ou destituídos de qualquer tipo de charme. E os que têm potencial para ser bons maridos só a veem como uma boa amiga.
-              </p>
-              <p>
-                A ideia de Simon é fingir que a corteja. Dessa forma, de uma tacada só, ele conseguirá afastar as jovens obcecadas por um marido e atrairá vários pretendentes para Daphne. Afinal, se um duque está interessado nela, a jovem deve ter mais atrativos do que aparenta.
-              </p>
+              {formatedDescription.map((paragrafo, index) => (
+                <p key={index}>{paragrafo}</p>
+              ))}
 
             </div>
           </div>
@@ -65,7 +88,7 @@ function App() {
         <Container>
           <div className="row">
             <div className="col-4">
-              <img className="bookPageDesktop__image" src="../assets/img/image_test.png"/>
+              <img className="bookPageDesktop__image" src={data.book.cover}/>
               <div className="bookPageDesktop__buttons">
                 <Link>
                   <img src="../assets/img/coracao.svg" />
@@ -82,22 +105,14 @@ function App() {
               </div>
             </div>
             <div className="col-8">
-              <h1>O duque e eu (Os Bridgertons – Livro 1): O livro de Daphne</h1>
-              <h2>Julia Quinn</h2>
+              <h1>{data.book.name}</h1>
+              <h2>{data.book.author.name}</h2>
 
               <div className="bookPageDesktop__content">
-                <p>
-                  Simon Basset, o irresistível duque de Hastings, acaba de retornar a Londres depois de seis anos viajando pelo mundo. Rico, bonito e solteiro, ele é um prato cheio para as mães da alta sociedade, que só pensam em arrumar um bom partido para suas filhas.
-                </p>
-                <p>
-                  Simon, porém, tem o firme propósito de nunca se casar. Assim, para se livrar das garras dessas mulheres, precisa de um plano infalível.
-                </p>
-                <p>
-                  É quando entra em cena Daphne Bridgerton, a irmã mais nova de seu melhor amigo. Apesar de espirituosa e dona de uma personalidade marcante, todos os homens que se interessam por ela são velhos demais, pouco inteligentes ou destituídos de qualquer tipo de charme. E os que têm potencial para ser bons maridos só a veem como uma boa amiga.
-                </p>
-                <p>
-                  A ideia de Simon é fingir que a corteja. Dessa forma, de uma tacada só, ele conseguirá afastar as jovens obcecadas por um marido e atrairá vários pretendentes para Daphne. Afinal, se um duque está interessado nela, a jovem deve ter mais atrativos do que aparenta.
-                </p>
+                
+                {formatedDescription.map((paragrafo, index) => (
+                  <p key={index}>{paragrafo}</p>
+                ))}
 
                 <h2>
                   Sobre o Autor
@@ -114,6 +129,12 @@ function App() {
       </div>
     </main>
   );
-}
+};
+
+const App = () => (
+  <QueryClientProvider client={queryClient}>
+    <Book />
+  </QueryClientProvider>
+);
 
 export default App;

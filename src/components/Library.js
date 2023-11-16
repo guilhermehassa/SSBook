@@ -39,7 +39,7 @@ const Library = () => {
 
       {data.allBooks.map(data => (
         <li className='col-12 col-lg-4 library__list___item' key={data.id}>
-          <Link>
+          <Link to={`/book/${data.id}`}>
             <img
               src={data.cover}
               alt={data.name}
