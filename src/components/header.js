@@ -31,7 +31,7 @@ export default function Header(){
 
         <Link to="/" className="header__profile">
           <picture>
-            <source srcset="../assets/img/profile_picture.png" media="(orientation: portrait)"/>
+            <source srcSet="../assets/img/profile_picture.png" media="(orientation: portrait)"/>
             <img src="../assets/img/profile_picture.png" alt="Foto de perfil Jucireide" />
           </picture>
 

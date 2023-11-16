@@ -3,9 +3,17 @@ import React, { useState,clsx } from 'react';
 import { Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
+import 'swiper/swiper-bundle.css'; 
+import { QueryClient, QueryClientProvider, useQuery } from 'react-query';
+
+import FavoriteBooks from '../components/FavoriteBooks';
+import FavoriteAuthors from '../components/FavoriteAuthors';
+import Library from '../components/Library';
+
+
 
 function App() {
+
   return (
     <main>
       <section className="breadcrumb">
@@ -27,95 +35,7 @@ function App() {
             </Link>
           </div>
 
-          <Swiper
-            spaceBetween={20}
-            slidesPerView={2.3}
-          >
-            <SwiperSlide className='favoriteBooks__item'>
-              <Link to='/book/2'>
-                <img
-                  src='../assets/img/image_test.png'
-                  alt='Test'
-                />
-                <h3>
-                  O duque e eu (Os Bridgertons – Livro 1): O livro de Daphne
-                </h3>
-                <h4>
-                  Julia Quinn
-                </h4>
-              </Link>
-            </SwiperSlide>
-            <SwiperSlide className='favoriteBooks__item'>
-              <Link to='/book/2'>
-                <img
-                  src='../assets/img/image_test.png'
-                  alt='Test'
-                />
-                <h3>
-                  O duque e eu (Os Bridgertons – Livro 1): O livro de Daphne
-                </h3>
-                <h4>
-                  Julia Quinn
-                </h4>
-              </Link>
-            </SwiperSlide>
-            <SwiperSlide className='favoriteBooks__item'>
-              <Link to='/book/2'>
-                <img
-                  src='../assets/img/image_test.png'
-                  alt='Test'
-                />
-                <h3>
-                  O duque e eu (Os Bridgertons – Livro 1): O livro de Daphne
-                </h3>
-                <h4>
-                  Julia Quinn
-                </h4>
-              </Link>
-            </SwiperSlide>
-            <SwiperSlide className='favoriteBooks__item'>
-              <Link to='/book/2'>
-                <img
-                  src='../assets/img/image_test.png'
-                  alt='Test'
-                />
-                <h3>
-                  O duque e eu (Os Bridgertons – Livro 1): O livro de Daphne
-                </h3>
-                <h4>
-                  Julia Quinn
-                </h4>
-              </Link>
-            </SwiperSlide>
-            <SwiperSlide className='favoriteBooks__item'>
-              <Link to='/book/2'>
-                <img
-                  src='../assets/img/image_test.png'
-                  alt='Test'
-                />
-                <h3>
-                  O duque e eu (Os Bridgertons – Livro 1): O livro de Daphne
-                </h3>
-                <h4>
-                  Julia Quinn
-                </h4>
-              </Link>
-            </SwiperSlide>
-            <SwiperSlide className='favoriteBooks__item'>
-              <Link to='/book/2'>
-                <img
-                  src='../assets/img/image_test.png'
-                  alt='Test'
-                />
-                <h3>
-                  O duque e eu (Os Bridgertons – Livro 1): O livro de Daphne
-                </h3>
-                <h4>
-                  Julia Quinn
-                </h4>
-              </Link>
-            </SwiperSlide>
-          </Swiper>
+          <FavoriteBooks />
         </Container>
       </section>
       <section className='sectionList favoriteAuthors'>
@@ -127,72 +47,7 @@ function App() {
             </Link>
           </div>
 
-          <Swiper
-            spaceBetween={20}
-            slidesPerView={'auto'}
-            className='favoriteAuthors__swiper'
-          >
-            <SwiperSlide className='favoriteAuthors__item'>
-              <img
-                src='../assets/img/profile_picture.png'
-                alt='Test'
-              />
-              <div className='favoriteAuthors__item___content'>
-                <h3> Connie Brockway</h3>
-                <p>6 Livros</p>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className='favoriteAuthors__item'>
-              <img
-                src='../assets/img/profile_picture.png'
-                alt='Test'
-              />
-              <div className='favoriteAuthors__item___content'>
-                <h3> Connie Brockway</h3>
-                <p>6 Livros</p>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className='favoriteAuthors__item'>
-              <img
-                src='../assets/img/profile_picture.png'
-                alt='Test'
-              />
-              <div className='favoriteAuthors__item___content'>
-                <h3> Connie Brockway</h3>
-                <p>6 Livros</p>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className='favoriteAuthors__item'>
-              <img
-                src='../assets/img/profile_picture.png'
-                alt='Test'
-              />
-              <div className='favoriteAuthors__item___content'>
-                <h3> Connie Brockway</h3>
-                <p>6 Livros</p>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className='favoriteAuthors__item'>
-              <img
-                src='../assets/img/profile_picture.png'
-                alt='Test'
-              />
-              <div className='favoriteAuthors__item___content'>
-                <h3> Connie Brockway</h3>
-                <p>6 Livros</p>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className='favoriteAuthors__item'>
-              <img
-                src='../assets/img/profile_picture.png'
-                alt='Test'
-              />
-              <div className='favoriteAuthors__item___content'>
-                <h3> Connie Brockway</h3>
-                <p>6 Livros</p>
-              </div>
-            </SwiperSlide>
-          </Swiper>
+          <FavoriteAuthors />
 
         </Container>
       </section>
@@ -215,62 +70,23 @@ function App() {
             </SwiperSlide>
             <SwiperSlide className='sectionList__lib___item'>
               <Link to='/'>
-                Todos
+                Romance
               </Link>
             </SwiperSlide>
             <SwiperSlide className='sectionList__lib___item'>
               <Link to='/'>
-                Todos
+                Aventuras
               </Link>
             </SwiperSlide>
             <SwiperSlide className='sectionList__lib___item'>
               <Link to='/'>
-                Todos
-              </Link>
-            </SwiperSlide>
-            <SwiperSlide className='sectionList__lib___item'>
-              <Link to='/'>
-                Todos
+                Comédia
               </Link>
             </SwiperSlide>
           </Swiper>
 
-          <ul className='library__list'>
-            <li className='library__list___item'>
-              <Link>
-                <img
-                  src='../assets/img/image_test.png'
-                  alt='Test'
-                />
 
-                <div className='library__list___item___content'>
-                  <h3>
-                    O duque e eu (Os Bridgertons Livro Novo 1)
-                  </h3>
-                  <p>
-                    Julia Quinn
-                  </p>
-                </div>
-              </Link>
-            </li>
-            <li className='library__list___item'>
-              <Link>
-                <img
-                  src='../assets/img/image_test.png'
-                  alt='Test'
-                />
-
-                <div className='library__list___item___content'>
-                  <h3>
-                    O duque e eu (Os Bridgertons Livro Novo 1)
-                  </h3>
-                  <p>
-                    Julia Quinn
-                  </p>
-                </div>
-              </Link>
-            </li>
-          </ul>
+          <Library />
         </Container>
       </section>
     </main>

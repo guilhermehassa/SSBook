@@ -7,11 +7,19 @@
 
     &:last-child{margin-right: 0;}
 
-    a{text-decoration: none; color: unset;}
+    a{
+      text-decoration: none;
+      color: unset;
+      display: flex;
+      flex-direction: column;
+    }
     img{
       border-radius: to-rem(5px);
       max-width: 100%;
+      height: to-rem(180px);
       margin-bottom: to-rem(10px);
+      object-fit: cover;
+      object-position: center;
     }
 
     h3{
