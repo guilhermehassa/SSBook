@@ -42,22 +42,33 @@
       border-radius: 20px;
       border: 1px solid var(--lightGray);
       padding: to-rem(6px) to-rem(16px);
+      transition-property: all !important;
+      transition: 0.3s;
       
       a{
         color:var(--mediumGray);
         text-decoration: none;
         font-size: to-rem(14px);
         font-weight: 500;
+        transition: 0.3s;
       }
+      &:hover{
+        border-color: var(--purple);
 
+        a{
+          color: var(--purple);
+        }
+      }
       &.active{
         background-color: var(--purple);
-        border-color: transparent;
+        border-color: var(--purple);
 
         a{
           color: #fff;
         }
       }
+
+      
     }
   }
 }

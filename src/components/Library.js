@@ -38,7 +38,7 @@ const Library = () => {
     <div className='row library__list'>
 
       {data.allBooks.map(data => (
-        <li className='col-4 library__list___item' key={data.id}>
+        <li className='col-12 col-lg-4 library__list___item' key={data.id}>
           <Link>
             <img
               src={data.cover}
