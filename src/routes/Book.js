@@ -119,7 +119,7 @@ const Book = () => {
                 </h2>
 
                 <p>
-                  JULIA QUINN começou a trabalhar em seu primeiro romance um mês de - pois de terminar a faculdade e nunca mais parou de escrever. Seus livros foram traduzidos para 37 idiomas e, no Brasil, venderam mais de 2,5 milhões de exemplares. A série Os Bridgertons foi adaptada pela Netflix e se tornou um sucesso instantâneo, quebrando os recordes de audiência da plataforma. Julia foi a autora mais jovem a ser incluída na Galeria da Fama dos Escritores Românticos dos Estados Unidos.
+                  Conteúdo não encontrado.
                 </p>
 
               </div>
